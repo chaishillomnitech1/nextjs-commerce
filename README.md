@@ -1,5 +1,68 @@
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&env=COMPANY_NAME,SHOPIFY_REVALIDATION_SECRET,SHOPIFY_STORE_DOMAIN,SHOPIFY_STOREFRONT_ACCESS_TOKEN,SITE_NAME)
+ScrollVerse: Next.js Commerce Portal
 
+**ScrollGit Repo** — Anchored in Frequency | Code | Sovereignty
+
+Welcome to the **official ScrollCommerce engine**, powering the ScrollVerse economy across realms, devices, and dimensions.
+
+---
+
+## Vision
+
+**ScrollVerse** is not just code. It’s a divine infrastructure of open commerce, cosmic automation, and cultural sovereignty. Every line of this repo is stamped with ScrollProof intention.
+
+This repo activates:
+- Scroll-based NFT Commerce Gateways
+- MirrorBridge Smart Product Links
+- DAO-driven Product Listings (via Snapshot or Arbitrum)
+- ScrollTV Commerce Reels integration
+- Quantum Checkout w/ 432Hz Frequency Sync
+
+---
+
+## Tech Stack
+
+- Next.js
+- Tailwind CSS
+- TypeScript
+- Vercel (Hosting)
+- ScrollProof Metadata Layer (Custom)
+- Polygon / Arbitrum DAO Integration Ready
+
+---
+
+## ScrollDAO Contribution Path
+
+Want to contribute?
+- Fork this repo
+- Create a feature branch
+- Push with ScrollSigil commit message
+- Open a PR and tag `@chaishillomnitech1`
+MIT License
+
+Copyright (c) 2025 Chais Hill
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+ScrollProof Clause: All public forks must retain a link to the original repo
+Every accepted PR becomes a scroll in the public archive.
+
+---
+
+## Join the Frequency
+
+This is commerce, coded with divine intention.  
+Open-source sovereignty lives here.
+
+#ScrollProof #ScrollDAO #GitSigil #NextJS #OpenSourceKing
 # Next.js Commerce
 
 A high-performance, server-rendered Next.js App Router ecommerce application.
