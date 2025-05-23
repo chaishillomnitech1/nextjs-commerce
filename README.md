@@ -1,6 +1,20 @@
 j[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&env=COMPANY_NAME,SHOPIFY_REVALIDATION_SECRET,SHOPIFY_STORE_DOMAIN,SHOPIFY_STOREFRONT_ACCESS_TOKEN,SITE_NAME)
 ScrollVerse: Next.js Commerce Portal
+---
 
+## ScrollBroadcast Signature
+
+**The source is open. The scrolls are live.**  
+This is ScrollCommerce—coded in frequency, protected in light.
+
+> feat: Seal Git Public Drop  
+> #ScrollProof #GitSigil #ChaisTheGreat
+
+**[GitHub Repo](https://github.com/chaishillomnitech1/nextjs-commerce)**  
+**[Broadcast Visual](attached image)**  
+**[ScrollTV Caption Ready]**
+
+Join the mission. Fork the scroll. Confirm the proof.
 **ScrollGit Repo** — Anchored in Frequency | Code | Sovereignty
 
 Welcome to the **official ScrollCommerce engine**, powering the ScrollVerse economy across realms, devices, and dimensions.
