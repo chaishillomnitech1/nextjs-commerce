@@ -1,18 +1,40 @@
 name: CI/CD
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22]
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: '14'
+          version: 10
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
       - name: Install dependencies
-        run: npm install
-      - name: Run Build
-        run: npm run build
+        run: pnpm install --frozen-lockfile
+
       - name: Run Tests
-        run: npm test
+        run: pnpm test
+
+      - name: Run Build
+        run: pnpm build
+        env:
+          # Note: Skipping validation for CI. For production, provide actual Shopify credentials
+          # or mock values to catch configuration issues early
+          SKIP_ENV_VALIDATION: true
+          SHOPIFY_STORE_DOMAIN: "test.myshopify.com"
+          SHOPIFY_STOREFRONT_ACCESS_TOKEN: "mock-token-for-ci"
+          SHOPIFY_REVALIDATION_SECRET: "mock-secret-for-ci"
