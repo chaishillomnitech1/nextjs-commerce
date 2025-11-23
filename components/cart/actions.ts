@@ -37,7 +37,11 @@ export async function addItem(
       },
     );
   } catch (e) {
-    console.error("Error adding item to cart:", e);
+    console.error("Error adding item to cart:", {
+      error: e,
+      merchandiseId: selectedVariantId,
+      operation: "addItem",
+    });
     return "Error adding item to cart";
   }
 }
@@ -73,7 +77,11 @@ export async function removeItem(prevState: any, merchandiseId: string) {
       },
     );
   } catch (e) {
-    console.error("Error removing item from cart:", e);
+    console.error("Error removing item from cart:", {
+      error: e,
+      merchandiseId,
+      operation: "removeItem",
+    });
     return "Error removing item from cart";
   }
 }
@@ -129,7 +137,12 @@ export async function updateItemQuantity(
       },
     );
   } catch (e) {
-    console.error("Error updating item quantity:", e);
+    console.error("Error updating item quantity:", {
+      error: e,
+      merchandiseId,
+      quantity,
+      operation: "updateItemQuantity",
+    });
     return "Error updating item quantity";
   }
 }

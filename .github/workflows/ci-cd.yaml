@@ -32,4 +32,9 @@ jobs:
       - name: Run Build
         run: pnpm build
         env:
+          # Note: Skipping validation for CI. For production, provide actual Shopify credentials
+          # or mock values to catch configuration issues early
           SKIP_ENV_VALIDATION: true
+          SHOPIFY_STORE_DOMAIN: "test.myshopify.com"
+          SHOPIFY_STOREFRONT_ACCESS_TOKEN: "mock-token-for-ci"
+          SHOPIFY_REVALIDATION_SECRET: "mock-secret-for-ci"

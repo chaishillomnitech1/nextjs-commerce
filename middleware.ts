@@ -73,6 +73,9 @@ class RateLimiterMiddleware {
 }
 
 // Initialize rate limiters for different routes
+// NOTE: For production multi-instance deployments, replace this in-memory implementation
+// with a distributed solution like Redis or Upstash Rate Limit.
+// See ARCHITECTURE.md for scaling recommendations.
 const apiRateLimiter = new RateLimiterMiddleware(60000, 100); // 100 requests per minute
 const cartRateLimiter = new RateLimiterMiddleware(60000, 50); // 50 cart operations per minute
 
