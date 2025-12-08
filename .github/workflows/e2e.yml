@@ -1,0 +1,58 @@
+name: E2E Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build application
+        run: pnpm build
+        env:
+          SKIP_ENV_VALIDATION: true
+          SHOPIFY_STORE_DOMAIN: "test.myshopify.com"
+          SHOPIFY_STOREFRONT_ACCESS_TOKEN: "mock-token-for-ci"
+          SHOPIFY_REVALIDATION_SECRET: "mock-secret-for-ci"
+
+      - name: Run E2E tests (placeholder)
+        run: |
+          echo "E2E tests would run here"
+          echo "Install Playwright or Cypress for actual E2E testing"
+          echo "Example: pnpm exec playwright test"
+        # Uncomment when E2E tests are implemented:
+        # run: pnpm test:e2e
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7

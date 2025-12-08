@@ -1,0 +1,9 @@
+# Default code owners for all files in the repository
+* @chaishillomnitech1
+
+# Workflow and CI/CD configurations
+/.github/ @chaishillomnitech1
+
+# Deployment and infrastructure
+/.vercel.json @chaishillomnitech1
+/DEPLOYMENT.md @chaishillomnitech1
