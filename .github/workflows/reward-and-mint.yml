@@ -1,0 +1,112 @@
+name: Reward and Mint
+
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to reward'
+        required: true
+        type: number
+
+permissions:
+  pull-requests: read
+  contents: read
+
+jobs:
+  reward-contributor:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Get PR details
+        id: pr-details
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request?.number || ${{ github.event.inputs.pr_number }};
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber
+            });
+            
+            core.setOutput('author', pr.user.login);
+            core.setOutput('pr_number', prNumber);
+            core.setOutput('title', pr.title);
+            core.setOutput('url', pr.html_url);
+            
+            return {
+              author: pr.user.login,
+              prNumber: prNumber,
+              title: pr.title
+            };
+
+      - name: Calculate reward (placeholder)
+        id: calculate-reward
+        run: |
+          echo "Calculating reward based on PR size and impact..."
+          
+          # Placeholder logic - implement actual reward calculation
+          LINES_CHANGED=100
+          REWARD_AMOUNT="0.01"
+          
+          echo "lines_changed=$LINES_CHANGED" >> $GITHUB_OUTPUT
+          echo "reward_amount=$REWARD_AMOUNT" >> $GITHUB_OUTPUT
+          echo "Calculated reward: $REWARD_AMOUNT ETH for $LINES_CHANGED lines changed"
+
+      - name: Process reward (test mode)
+        env:
+          REWARDS_PRIVATE_KEY: ${{ secrets.REWARDS_PRIVATE_KEY }}
+          ALCHEMY_MUMBAI_URL: ${{ secrets.ALCHEMY_MUMBAI_URL }}
+          REWARDS_API_KEY: ${{ secrets.REWARDS_API_KEY }}
+          REWARDS_CONTRACT_ADDRESS: ${{ secrets.REWARDS_CONTRACT_ADDRESS }}
+          PILOT_TEST_WALLET: ${{ secrets.PILOT_TEST_WALLET }}
+        run: |
+          echo "🎁 Processing reward for @${{ steps.pr-details.outputs.author }}"
+          echo "PR: ${{ steps.pr-details.outputs.title }}"
+          echo "Amount: ${{ steps.calculate-reward.outputs.reward_amount }} ETH"
+          
+          if [ -z "$REWARDS_PRIVATE_KEY" ]; then
+            echo "⚠️ REWARDS_PRIVATE_KEY not configured. Skipping reward process."
+            exit 0
+          fi
+          
+          # Placeholder for actual reward/minting logic
+          echo "📝 Would mint reward to: $PILOT_TEST_WALLET"
+          echo "🔗 Contract: $REWARDS_CONTRACT_ADDRESS"
+          echo "🌐 Network: Mumbai Testnet"
+          echo "✅ Test mode - no actual transaction executed"
+
+      - name: Comment on PR
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const author = '${{ steps.pr-details.outputs.author }}';
+            const prNumber = '${{ steps.pr-details.outputs.pr_number }}';
+            const reward = '${{ steps.calculate-reward.outputs.reward_amount }}';
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: `## 🎉 Contribution Rewarded!\n\nThank you @${author} for your contribution!\n\n**Reward Details (Test Mode)**\n- Amount: ${reward} ETH (testnet)\n- Network: Mumbai Testnet\n- Status: Pilot Phase\n\n*This is a test transaction. Production rewards will be distributed after pilot completion.*`
+            });

@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+
+# Testing
+coverage
+.nyc_output
+*.log
+
+# Local env files
+.env*.local
+.env.development
+.env.production
+
+# Build artifacts
+.next
+out
+dist
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Documentation (optional - include if you want to exclude from deployment)
+# *.md
