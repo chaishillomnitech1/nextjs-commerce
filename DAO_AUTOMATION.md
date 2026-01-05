@@ -17,14 +17,14 @@ This document describes the DAO (Decentralized Autonomous Organization) automati
 ✅ **Repository Structure**: Organized for DAO integration  
 ✅ **Workflow Automation**: GitHub Actions ready for DAO triggers  
 ✅ **Code Ownership**: CODEOWNERS structure for governance  
-✅ **Issue Templates**: Standardized contribution tracking  
+✅ **Issue Templates**: Standardized contribution tracking
 
 ### Coming in Phase 2
 
 🔜 **Smart Contract Integration**: On-chain governance  
 🔜 **Token Rewards**: Contributor reward automation  
 🔜 **Voting Mechanisms**: Community decision-making  
-🔜 **NFT Certificates**: Contributor recognition  
+🔜 **NFT Certificates**: Contributor recognition
 
 ---
 
@@ -78,6 +78,7 @@ on:
 ```
 
 **Actions**:
+
 - ✅ Record contribution metadata
 - ✅ Track contributor wallet address
 - 🔜 Mint contribution NFT
@@ -85,6 +86,7 @@ on:
 - 🔜 Update contributor score
 
 **Metadata Captured**:
+
 ```json
 {
   "contributor": "github_username",
@@ -112,6 +114,7 @@ on:
 ```
 
 **Actions**:
+
 - 🔜 Validate proposal format
 - 🔜 Create Snapshot proposal
 - 🔜 Notify community members
@@ -119,6 +122,7 @@ on:
 - 🔜 Execute approved proposals
 
 **Proposal Template**:
+
 ```markdown
 ---
 type: governance-proposal
@@ -130,15 +134,19 @@ quorum: 10%
 ## Proposal Title
 
 ### Summary
+
 Brief description
 
 ### Motivation
+
 Why this matters
 
 ### Implementation
+
 How it will be done
 
 ### Budget (if applicable)
+
 Resources needed
 ```
 
@@ -152,10 +160,11 @@ Resources needed
 name: Monthly DAO Rewards
 on:
   schedule:
-    - cron: '0 0 1 * *'  # First day of each month
+    - cron: "0 0 1 * *" # First day of each month
 ```
 
 **Actions**:
+
 - 🔜 Calculate contribution scores
 - 🔜 Distribute DAO tokens
 - 🔜 Issue NFT certificates
@@ -176,6 +185,7 @@ on:
 ```
 
 **Actions**:
+
 - ✅ AI-powered code review
 - ✅ Automated feedback
 - ✅ Standards compliance check
@@ -189,6 +199,7 @@ on:
 **Future Implementation**: `.github/workflows/community-metrics.yml`
 
 **Actions**:
+
 - 🔜 Track active contributors
 - 🔜 Measure engagement levels
 - 🔜 Calculate project health score
@@ -202,14 +213,16 @@ on:
 ### Blockchain Networks
 
 #### Arbitrum (Primary)
+
 - **Purpose**: Main DAO governance and token distribution
 - **Network**: Arbitrum One (L2)
-- **Contracts**: 
+- **Contracts**:
   - `DAOGovernance.sol` - Voting and proposals
   - `ContributorRewards.sol` - Token distribution
   - `ScrollProofNFT.sol` - Contribution certificates
 
 #### Polygon (Secondary)
+
 - **Purpose**: Low-cost NFT minting and transactions
 - **Network**: Polygon PoS
 - **Use Cases**:
@@ -220,6 +233,7 @@ on:
 ### Governance Platforms
 
 #### Snapshot
+
 - **Purpose**: Off-chain voting (gasless)
 - **Space**: `scrollverse.eth` (to be created)
 - **Features**:
@@ -228,6 +242,7 @@ on:
   - Result execution triggers
 
 #### IPFS
+
 - **Purpose**: Decentralized storage
 - **Storage**:
   - Proposal documents
@@ -244,7 +259,7 @@ on:
 ```typescript
 // /api/dao/contribution
 interface ContributionWebhook {
-  event: 'pull_request.merged' | 'issue.closed' | 'review.approved';
+  event: "pull_request.merged" | "issue.closed" | "review.approved";
   payload: {
     repository: string;
     contributor: string;
@@ -255,23 +270,23 @@ interface ContributionWebhook {
 
 // /api/dao/proposal
 interface ProposalWebhook {
-  event: 'proposal.created' | 'proposal.executed';
+  event: "proposal.created" | "proposal.executed";
   payload: {
     proposal_id: string;
     title: string;
     snapshot_url: string;
-    status: 'pending' | 'active' | 'passed' | 'failed';
+    status: "pending" | "active" | "passed" | "failed";
   };
 }
 
 // /api/dao/reward
 interface RewardWebhook {
-  event: 'reward.calculated' | 'reward.distributed';
+  event: "reward.calculated" | "reward.distributed";
   payload: {
     contributor: string;
     wallet_address: string;
     amount: string;
-    token: 'SCROLL' | 'NFT';
+    token: "SCROLL" | "NFT";
     transaction_hash?: string;
   };
 }
@@ -295,28 +310,28 @@ interface IContributorRewards {
         uint256 score,
         uint256 timestamp
     );
-    
+
     event RewardDistributed(
         address indexed contributor,
         uint256 amount,
         uint256 timestamp
     );
-    
+
     // Functions
     function recordContribution(
         address contributor,
         uint256 prNumber,
         uint256 score
     ) external;
-    
+
     function distributeRewards(
         address[] calldata contributors,
         uint256[] calldata amounts
     ) external;
-    
-    function getContributorScore(address contributor) 
-        external 
-        view 
+
+    function getContributorScore(address contributor)
+        external
+        view
         returns (uint256);
 }
 ```
@@ -335,23 +350,23 @@ interface IScrollProofNFT {
         uint256 timestamp;
         string ipfsHash;
     }
-    
+
     // Events
     event ScrollProofMinted(
         address indexed contributor,
         uint256 indexed tokenId,
         uint256 prNumber
     );
-    
+
     // Functions
     function mintScrollProof(
         address contributor,
         ContributionMetadata calldata metadata
     ) external returns (uint256);
-    
-    function getContributions(address contributor) 
-        external 
-        view 
+
+    function getContributions(address contributor)
+        external
+        view
         returns (uint256[] memory);
 }
 ```
@@ -370,7 +385,7 @@ contributors:
   - github: chaishillomnitech1
     wallet: "0x..."
     role: "founder"
-    
+
   - github: contributor_name
     wallet: "0x..."
     role: "core-contributor"
@@ -390,12 +405,12 @@ contributors:
 
 ### Contribution Scoring
 
-| Tier | Score Range | Reward Multiplier | NFT Type |
-|------|-------------|-------------------|----------|
-| 🥇 Gold | 1000+ | 3.0x | Legendary |
-| 🥈 Silver | 500-999 | 2.0x | Epic |
-| 🥉 Bronze | 100-499 | 1.5x | Rare |
-| 🏅 Standard | 1-99 | 1.0x | Common |
+| Tier        | Score Range | Reward Multiplier | NFT Type  |
+| ----------- | ----------- | ----------------- | --------- |
+| 🥇 Gold     | 1000+       | 3.0x              | Legendary |
+| 🥈 Silver   | 500-999     | 2.0x              | Epic      |
+| 🥉 Bronze   | 100-499     | 1.5x              | Rare      |
+| 🏅 Standard | 1-99        | 1.0x              | Common    |
 
 ### Score Calculation
 
@@ -406,13 +421,13 @@ function calculateContributionScore(pr: PullRequest): number {
   const filesModifiedScore = pr.filesModified * 5;
   const reviewsScore = pr.approvalCount * 20;
   const complexityScore = analyzeComplexity(pr.diff) * 10;
-  
+
   return Math.floor(
-    baseScore + 
-    linesChangedScore + 
-    filesModifiedScore + 
-    reviewsScore + 
-    complexityScore
+    baseScore +
+      linesChangedScore +
+      filesModifiedScore +
+      reviewsScore +
+      complexityScore,
   );
 }
 ```
@@ -469,6 +484,7 @@ Track DAO metrics in real-time:
 ### Transparency Reports
 
 Published monthly:
+
 - Contribution statistics
 - Reward distributions
 - Governance decisions
@@ -560,18 +576,18 @@ pnpm run dao:mint-test-nft --wallet=0x...
 
 ```typescript
 // lib/dao/hooks/custom-hook.ts
-import { DAOHook } from '@/lib/dao/types';
+import { DAOHook } from "@/lib/dao/types";
 
 export const customHook: DAOHook = {
-  name: 'custom-contribution-hook',
-  trigger: 'pull_request.merged',
-  
+  name: "custom-contribution-hook",
+  trigger: "pull_request.merged",
+
   async execute(event) {
     // Custom logic here
     const score = calculateScore(event);
     await recordContribution(event.contributor, score);
     await notifyContributor(event.contributor);
-  }
+  },
 };
 ```
 
@@ -591,6 +607,7 @@ export const customHook: DAOHook = {
 ### Voting Power
 
 Voting power is determined by:
+
 - Contribution score (50%)
 - DAO token holdings (30%)
 - Community tenure (20%)
@@ -631,6 +648,6 @@ The DAO automation hooks transform the Next.js Commerce project into a truly com
 
 ---
 
-*Last Updated: 2026-01-05*  
-*Status: Phase 2 Planning*  
-*Maintainer: @chaishillomnitech1*
+_Last Updated: 2026-01-05_  
+_Status: Phase 2 Planning_  
+_Maintainer: @chaishillomnitech1_

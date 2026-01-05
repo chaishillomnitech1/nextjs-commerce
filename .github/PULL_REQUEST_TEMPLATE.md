@@ -51,9 +51,7 @@ Related to #(issue number)
 
 ### Before
 
-
 ### After
-
 
 ## Checklist
 

@@ -1,8 +1,8 @@
 ---
 name: General Issue Template
 about: Default template for issues
-title: ''
-labels: ''
+title: ""
+labels: ""
 assignees: chaishillomnitech1
 ---
 
@@ -24,10 +24,10 @@ assignees: chaishillomnitech1
 
 ## Environment (if applicable)
 
-- **OS**: 
-- **Browser**: 
-- **Node Version**: 
-- **pnpm Version**: 
+- **OS**:
+- **Browser**:
+- **Node Version**:
+- **pnpm Version**:
 
 ## Additional Information
 

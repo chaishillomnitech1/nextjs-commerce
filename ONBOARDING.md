@@ -88,12 +88,12 @@ nextjs-commerce/
 
 ### Prerequisites
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| Node.js | 20.x+ | Runtime environment |
-| pnpm | 10.x+ | Package manager |
-| Git | Latest | Version control |
-| VS Code | Latest | Recommended editor |
+| Tool    | Version | Purpose             |
+| ------- | ------- | ------------------- |
+| Node.js | 20.x+   | Runtime environment |
+| pnpm    | 10.x+   | Package manager     |
+| Git     | Latest  | Version control     |
+| VS Code | Latest  | Recommended editor  |
 
 ### Recommended VS Code Extensions
 

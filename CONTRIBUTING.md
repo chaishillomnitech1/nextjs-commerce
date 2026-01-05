@@ -38,28 +38,34 @@ This project operates with respect, inclusivity, and divine intention. All contr
 1. **Fork the repository** on GitHub
 
 2. **Clone your fork:**
+
    ```bash
    git clone https://github.com/YOUR_USERNAME/nextjs-commerce.git
    cd nextjs-commerce
    ```
 
 3. **Add upstream remote:**
+
    ```bash
    git remote add upstream https://github.com/chaishillomnitech1/nextjs-commerce.git
    ```
 
 4. **Install dependencies:**
+
    ```bash
    pnpm install
    ```
 
 5. **Set up environment variables:**
+
    ```bash
    cp .env.example .env
    ```
+
    Edit `.env` with your Shopify credentials (see README.md for details)
 
 6. **Start development server:**
+
    ```bash
    pnpm dev
    ```
@@ -73,10 +79,13 @@ This project operates with respect, inclusivity, and divine intention. All contr
 ## Development Workflow
 
 1. **Create a feature branch:**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
+
    Or for bug fixes:
+
    ```bash
    git checkout -b fix/bug-description
    ```
@@ -84,12 +93,14 @@ This project operates with respect, inclusivity, and divine intention. All contr
 2. **Make your changes** following our coding standards
 
 3. **Test your changes:**
+
    ```bash
    pnpm test
    pnpm build
    ```
 
 4. **Format your code:**
+
    ```bash
    pnpm prettier
    ```
@@ -97,6 +108,7 @@ This project operates with respect, inclusivity, and divine intention. All contr
 5. **Commit your changes** (see commit message guidelines below)
 
 6. **Push to your fork:**
+
    ```bash
    git push origin feature/your-feature-name
    ```
@@ -138,6 +150,7 @@ This project operates with respect, inclusivity, and divine intention. All contr
 We follow the **ScrollSigil** commit message convention with conventional commits format:
 
 ### Format
+
 ```
 <type>(<scope>): <subject>
 
@@ -147,6 +160,7 @@ We follow the **ScrollSigil** commit message convention with conventional commit
 ```
 
 ### Types
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -158,6 +172,7 @@ We follow the **ScrollSigil** commit message convention with conventional commit
 - `ci`: CI/CD changes
 
 ### Examples
+
 ```
 feat(commerce): add product filtering by price range
 
@@ -187,6 +202,7 @@ Add detailed steps for pnpm setup and environment variables.
 ### ScrollSigil Tags
 
 Add these tags to align with the ScrollVerse mission:
+
 - `#ScrollProof` - For verified, tested features
 - `#ScrollDAO` - For community/governance contributions
 - `#GitSigil` - For important structural changes
@@ -207,6 +223,7 @@ Add these tags to align with the ScrollVerse mission:
 ### PR Template
 
 Use our PR template (auto-populated) which includes:
+
 - Description of changes
 - Type of change (feature, bugfix, etc.)
 - Testing performed

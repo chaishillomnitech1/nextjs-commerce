@@ -38,12 +38,12 @@ If you discover a security vulnerability, please **DO NOT** create a public GitH
 
 ### Severity Levels
 
-| Severity | Description | Response Time |
-|----------|-------------|---------------|
-| **Critical** | Remote code execution, data breach, authentication bypass | 24-48 hours |
-| **High** | Privilege escalation, SQL injection, XSS | 7 days |
-| **Medium** | Information disclosure, CSRF | 30 days |
-| **Low** | Minor security improvements | 90 days |
+| Severity     | Description                                               | Response Time |
+| ------------ | --------------------------------------------------------- | ------------- |
+| **Critical** | Remote code execution, data breach, authentication bypass | 24-48 hours   |
+| **High**     | Privilege escalation, SQL injection, XSS                  | 7 days        |
+| **Medium**   | Information disclosure, CSRF                              | 30 days       |
+| **Low**      | Minor security improvements                               | 90 days       |
 
 ## Security Best Practices
 
@@ -115,17 +115,20 @@ If you discover a security vulnerability, please **DO NOT** create a public GitH
 This project uses several security best practices:
 
 ✅ **Next.js Security Features**
+
 - Server-side rendering (SSR) reduces XSS risks
 - Built-in CSRF protection
 - Secure headers configuration
 - Content Security Policy (CSP) ready
 
 ✅ **Dependency Management**
+
 - Regular dependency updates via Dependabot (if enabled)
 - pnpm for deterministic installs
 - Lock file (`pnpm-lock.yaml`) for reproducible builds
 
 ✅ **CI/CD Security**
+
 - Automated testing on every PR
 - Build verification before deployment
 - Environment variable validation
@@ -133,16 +136,19 @@ This project uses several security best practices:
 ### Areas Requiring Attention
 
 ⚠️ **Environment Variables**
+
 - Ensure all sensitive variables are properly configured in Vercel
 - Never commit `.env` files to version control
 - Use `SKIP_ENV_VALIDATION` only in CI, never in production
 
 ⚠️ **API Routes**
+
 - Validate all API inputs
 - Implement rate limiting for public endpoints
 - Add authentication where needed
 
 ⚠️ **Third-Party Scripts**
+
 - Review any third-party scripts carefully
 - Use Subresource Integrity (SRI) when possible
 - Minimize external dependencies

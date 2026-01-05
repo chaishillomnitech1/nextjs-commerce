@@ -49,9 +49,9 @@ jobs:
         with:
           script: |
             const axios = require('axios');
-            
+
             const diff = `${{ steps.pr-diff.outputs.diff }}`;
-            
+
             if (!process.env.OPENAI_API_KEY) {
               console.log('⚠️ OPENAI_API_KEY not configured. Skipping AI review.');
               return;

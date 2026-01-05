@@ -71,7 +71,7 @@ SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
 SHOPIFY_STOREFRONT_ACCESS_TOKEN=your-storefront-access-token
 SHOPIFY_REVALIDATION_SECRET=your-secret-key
 
-# Optional: Site Configuration  
+# Optional: Site Configuration
 COMPANY_NAME="ScrollVerse Commerce"
 SITE_NAME="ScrollCommerce"
 ```
@@ -82,14 +82,14 @@ SITE_NAME="ScrollCommerce"
 
 ## 📚 Documentation
 
-| Document | Description |
-|----------|-------------|
-| [CONTRIBUTING.md](./CONTRIBUTING.md) | Contribution guidelines and workflow |
-| [SECURITY.md](./SECURITY.md) | Security policy and best practices |
-| [ONBOARDING.md](./ONBOARDING.md) | New contributor onboarding guide |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | System architecture and design |
-| [DEPLOYMENT.md](./DEPLOYMENT.md) | Deployment instructions |
-| [DAO_AUTOMATION.md](./DAO_AUTOMATION.md) | DAO automation hooks (Phase 2) |
+| Document                                 | Description                          |
+| ---------------------------------------- | ------------------------------------ |
+| [CONTRIBUTING.md](./CONTRIBUTING.md)     | Contribution guidelines and workflow |
+| [SECURITY.md](./SECURITY.md)             | Security policy and best practices   |
+| [ONBOARDING.md](./ONBOARDING.md)         | New contributor onboarding guide     |
+| [ARCHITECTURE.md](./ARCHITECTURE.md)     | System architecture and design       |
+| [DEPLOYMENT.md](./DEPLOYMENT.md)         | Deployment instructions              |
+| [DAO_AUTOMATION.md](./DAO_AUTOMATION.md) | DAO automation hooks (Phase 2)       |
 
 ---
 
@@ -132,20 +132,20 @@ pnpm test             # Run tests
 
 ### Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **Next.js 15** | React framework with App Router |
-| **React 19** | UI library with Server Components |
-| **TypeScript** | Type-safe development |
-| **Tailwind CSS** | Utility-first styling |
-| **Shopify Storefront API** | Headless commerce backend |
-| **Vercel** | Hosting and deployment |
+| Technology                 | Purpose                           |
+| -------------------------- | --------------------------------- |
+| **Next.js 15**             | React framework with App Router   |
+| **React 19**               | UI library with Server Components |
+| **TypeScript**             | Type-safe development             |
+| **Tailwind CSS**           | Utility-first styling             |
+| **Shopify Storefront API** | Headless commerce backend         |
+| **Vercel**                 | Hosting and deployment            |
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions from the ScrollVerse community! 
+We welcome contributions from the ScrollVerse community!
 
 ### Quick Contribution Guide
 
@@ -168,7 +168,7 @@ This project operates with respect, inclusivity, and divine intention. Be kind, 
 
 ## 🔒 Security
 
-Security is paramount in the ScrollVerse. 
+Security is paramount in the ScrollVerse.
 
 - 🚨 **Report vulnerabilities** privately to @chaishillomnitech1
 - 📖 Read our [Security Policy](./SECURITY.md)
@@ -209,7 +209,7 @@ This project is DAO-ready with automation hooks for community governance.
 ### Coming Soon
 
 - 🪙 **Token Rewards**: Earn DAO tokens for contributions
-- 🎨 **NFT Certificates**: On-chain proof of contributions  
+- 🎨 **NFT Certificates**: On-chain proof of contributions
 - 🗳️ **Governance**: Vote on proposals and features
 - 📊 **Analytics**: Community dashboard and metrics
 - ⚡ **Automation**: Smart contract integration
@@ -284,8 +284,8 @@ Open-source sovereignty lives here.
 
 **#ScrollProof #ScrollDAO #GitSigil #NextJS #OpenSourceKing**
 
-*The source is open. The scrolls are live.*  
-*ScrollGit Repo — Anchored in Frequency | Code | Sovereignty*
+_The source is open. The scrolls are live._  
+_ScrollGit Repo — Anchored in Frequency | Code | Sovereignty_
 
 ---
 
