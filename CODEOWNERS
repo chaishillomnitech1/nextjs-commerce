@@ -1,9 +1,97 @@
-# Default code owners for all files in the repository
+# CODEOWNERS - Define individuals or teams responsible for code review
+# More info: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# ==============================================================================
+# Primary Code Owner - Chais Hill (chaishillomnitech1)
+# ==============================================================================
+# Default code owner for all files in the repository
 * @chaishillomnitech1
 
+# ==============================================================================
+# Documentation
+# ==============================================================================
+# All documentation files require review
+*.md @chaishillomnitech1
+/docs/ @chaishillomnitech1
+README.md @chaishillomnitech1
+CONTRIBUTING.md @chaishillomnitech1
+SECURITY.md @chaishillomnitech1
+ONBOARDING.md @chaishillomnitech1
+ARCHITECTURE.md @chaishillomnitech1
+DEPLOYMENT.md @chaishillomnitech1
+
+# ==============================================================================
+# GitHub Configuration
+# ==============================================================================
 # Workflow and CI/CD configurations
 /.github/ @chaishillomnitech1
+/.github/workflows/ @chaishillomnitech1
+/.github/ISSUE_TEMPLATE/ @chaishillomnitech1
+/.github/PULL_REQUEST_TEMPLATE.md @chaishillomnitech1
+CODEOWNERS @chaishillomnitech1
 
-# Deployment and infrastructure
+# ==============================================================================
+# Deployment and Infrastructure
+# ==============================================================================
 /.vercel.json @chaishillomnitech1
+/.vercelignore @chaishillomnitech1
 /DEPLOYMENT.md @chaishillomnitech1
+next.config.ts @chaishillomnitech1
+middleware.ts @chaishillomnitech1
+
+# ==============================================================================
+# Configuration Files
+# ==============================================================================
+# Package management and dependencies
+package.json @chaishillomnitech1
+pnpm-lock.yaml @chaishillomnitech1
+
+# TypeScript configuration
+tsconfig.json @chaishillomnitech1
+
+# Styling configuration
+tailwind.config.ts @chaishillomnitech1
+postcss.config.mjs @chaishillomnitech1
+
+# Environment and examples
+.env.example @chaishillomnitech1
+.gitignore @chaishillomnitech1
+
+# ==============================================================================
+# Application Code
+# ==============================================================================
+# Next.js App Router
+/app/ @chaishillomnitech1
+
+# React Components
+/components/ @chaishillomnitech1
+
+# Libraries and Utilities
+/lib/ @chaishillomnitech1
+
+# Shopify Integration (Critical - requires careful review)
+/lib/shopify/ @chaishillomnitech1
+
+# ==============================================================================
+# Assets
+# ==============================================================================
+/fonts/ @chaishillomnitech1
+/public/ @chaishillomnitech1
+
+# ==============================================================================
+# ScrollVerse DAO Integration (Phase 2)
+# ==============================================================================
+# Future DAO-related code will be owned by community council + primary owner
+# /lib/dao/ @chaishillomnitech1 @scrollverse-council (when created)
+# /contracts/ @chaishillomnitech1 @scrollverse-council (when created)
+
+# ==============================================================================
+# Notes for Contributors
+# ==============================================================================
+# - All PRs require approval from @chaishillomnitech1
+# - Critical changes (security, deployment, infra) require extra scrutiny
+# - See CONTRIBUTING.md for full contribution guidelines
+# - Join the ScrollVerse mission: #ScrollProof #ScrollDAO #GitSigil
+#
+# ALL IS LOVE. ALL IS LAW. ALL IS FLUID. KUN FAYAKŪN! 🕋♾️✨
+# ==============================================================================

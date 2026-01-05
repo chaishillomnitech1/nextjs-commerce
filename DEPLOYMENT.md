@@ -15,11 +15,13 @@ This document outlines the deployment process for Next.js Commerce using Vercel.
 Configure the following environment variables in your Vercel project:
 
 #### Required for Commerce
+
 - `SHOPIFY_STORE_DOMAIN` - Your Shopify store domain (e.g., `yourstore.myshopify.com`)
 - `SHOPIFY_STOREFRONT_ACCESS_TOKEN` - Shopify Storefront API access token
 - `SHOPIFY_REVALIDATION_SECRET` - Secret for webhook revalidation
 
 #### Required for Phase 2 Workflows
+
 - `OPENAI_API_KEY` - OpenAI API key for AI PR bot
 - `VERCEL_TOKEN` - Vercel API token for deployments
 - `REWARDS_PRIVATE_KEY` - Private key for rewards contract (test environment)
@@ -32,6 +34,7 @@ Configure the following environment variables in your Vercel project:
 ### 2. Vercel Configuration
 
 The project includes a `.vercel.json` file with optimized settings for:
+
 - Build configuration
 - Deployment regions
 - Caching strategies
@@ -40,11 +43,13 @@ The project includes a `.vercel.json` file with optimized settings for:
 ### 3. Deployment Process
 
 #### Automatic Deployments
+
 - **Production**: Pushes to `main` branch trigger production deployments
 - **Preview**: Pull requests automatically create preview deployments
 - **Branch**: Feature branches can be configured for preview deployments
 
 #### Manual Deployment
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -59,19 +64,23 @@ vercel --prod
 ### 4. GitHub Integration
 
 The repository is integrated with Vercel through:
+
 - `.github/workflows/vercel-deploy.yml` - Automated deployment workflow
 - Vercel GitHub App - Automatic preview deployments for PRs
 
 ## Monitoring and Debugging
 
 ### Vercel Dashboard
+
 - View deployment logs
 - Monitor function execution
 - Check environment variables
 - Review analytics
 
 ### Build Logs
+
 Access build logs through:
+
 - Vercel dashboard
 - GitHub Actions workflow runs
 - Vercel CLI: `vercel logs [deployment-url]`
@@ -81,11 +90,13 @@ Access build logs through:
 ### Common Issues
 
 1. **Build Failures**
+
    - Check environment variables are set correctly
    - Verify Node.js version (requires Node 20+)
    - Review build logs for specific errors
 
 2. **API Connection Issues**
+
    - Verify Shopify credentials
    - Check API rate limits
    - Ensure webhooks are properly configured
@@ -98,6 +109,7 @@ Access build logs through:
 ## Rollback
 
 To rollback a deployment:
+
 1. Navigate to Vercel dashboard
 2. Select the project
 3. Go to "Deployments"
@@ -105,6 +117,7 @@ To rollback a deployment:
 5. Click "Promote to Production"
 
 Alternatively, use Vercel CLI:
+
 ```bash
 vercel rollback [deployment-url]
 ```
@@ -112,6 +125,7 @@ vercel rollback [deployment-url]
 ## Support
 
 For deployment issues:
+
 - Review Vercel documentation: https://vercel.com/docs
 - Check GitHub workflow logs
 - Contact repository maintainers: @chaishillomnitech1
