@@ -108,8 +108,10 @@ export function createUrgencyTrigger(product?: Product): {
     };
   }
 
-  // Simulate scarcity (in real app, get from inventory)
-  const stockLevel = Math.random() * 100;
+  // TODO: Replace with real inventory data from your backend
+  // This is a placeholder for demonstration purposes
+  // Example: const stockLevel = product.inventoryQuantity || 100;
+  const stockLevel = Math.random() * 100; // DEMO ONLY - Replace with real data
 
   if (stockLevel < 10) {
     return {

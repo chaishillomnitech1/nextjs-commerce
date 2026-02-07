@@ -232,13 +232,19 @@ export function trackMicroConversion(event: {
  */
 export const instantGratification = {
   // Show delivery estimate immediately
+  // TODO: Integrate with actual delivery service API (e.g., ShipEngine, EasyPost)
   deliveryEstimate: {
     enabled: true,
     message: (zipCode?: string) =>
       zipCode
-        ? `📦 Delivers to ${zipCode}: Tomorrow by 10 AM`
+        ? `📦 Estimated delivery to ${zipCode}` // Update with real API data
         : "📦 Enter ZIP for delivery estimate",
     prominence: "high",
+    // Note: Replace placeholder with actual delivery calculation based on:
+    // - Current time and cutoff times
+    // - Warehouse location
+    // - Shipping method selected
+    // - Carrier API response
   },
 
   // Show savings in real-time
