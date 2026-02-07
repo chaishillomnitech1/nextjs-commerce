@@ -36,9 +36,9 @@ export function generateSmartCTA(context: {
   // Product page - direct conversion focus
   if (pageType === "product" && product) {
     const inStock = product.availableForSale;
-    const hasDiscount =
-      parseFloat(product.priceRange.minVariantPrice.amount) <
-      parseFloat(product.compareAtPriceRange?.minVariantPrice.amount || "0");
+    // Note: Shopify Product type doesn't include compareAtPriceRange
+    // To detect discounts, you would need to check variant-level compareAtPrice
+    const hasDiscount = false; // TODO: Implement discount detection with variant data
 
     return {
       primary: inStock

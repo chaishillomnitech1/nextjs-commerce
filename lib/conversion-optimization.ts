@@ -58,8 +58,13 @@ export function getABTestVariant(
   testId: string,
   variants: string[] = ["A", "B"],
 ): string {
+  // Ensure we have at least one variant
+  if (variants.length === 0) {
+    throw new Error("A/B test variants array cannot be empty");
+  }
+
   if (typeof window === "undefined") {
-    return variants[0]; // Default for SSR
+    return variants[0]!; // Default for SSR - safe because we checked length above
   }
 
   // Check for existing variant in localStorage
@@ -71,7 +76,7 @@ export function getABTestVariant(
   }
 
   // Assign new variant randomly
-  const variant = variants[Math.floor(Math.random() * variants.length)];
+  const variant = variants[Math.floor(Math.random() * variants.length)]!;
   localStorage.setItem(storageKey, variant);
 
   // Track variant assignment
