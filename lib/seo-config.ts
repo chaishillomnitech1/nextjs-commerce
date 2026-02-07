@@ -65,10 +65,10 @@ export const seoConfig = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "ScrollVerse Commerce",
-    url: "https://your-domain.com", // Update with actual domain
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://your-domain.com/search?q={search_term_string}",
+      target: `${process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com"}/search?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   },
