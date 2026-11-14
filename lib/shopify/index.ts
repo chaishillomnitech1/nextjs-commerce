@@ -77,6 +77,28 @@ export async function shopifyFetch<T>({
   query: string;
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: T } | never> {
+  if (
+    process.env.SHOPIFY_MOCK_EMPTY_CATALOG === "true" &&
+    !query.trimStart().startsWith("mutation")
+  ) {
+    return {
+      status: 200,
+      body: {
+        data: {
+          collection: null,
+          collections: { edges: [] },
+          menu: { items: [] },
+          pageByHandle: null,
+          pages: { edges: [] },
+          products: { edges: [] },
+          product: null,
+          productRecommendations: [],
+          cart: null,
+        },
+      } as unknown as T,
+    };
+  }
+
   try {
     const result = await fetch(endpoint, {
       method: "POST",
