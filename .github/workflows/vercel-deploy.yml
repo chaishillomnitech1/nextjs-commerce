@@ -36,6 +36,7 @@ jobs:
           SHOPIFY_STORE_DOMAIN: "test.myshopify.com"
           SHOPIFY_STOREFRONT_ACCESS_TOKEN: "mock-token-for-ci"
           SHOPIFY_REVALIDATION_SECRET: "mock-secret-for-ci"
+          SHOPIFY_MOCK_EMPTY_CATALOG: "true"
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
