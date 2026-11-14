@@ -18,7 +18,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.4.1
 
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
@@ -36,6 +36,7 @@ jobs:
           SHOPIFY_STORE_DOMAIN: "test.myshopify.com"
           SHOPIFY_STOREFRONT_ACCESS_TOKEN: "mock-token-for-ci"
           SHOPIFY_REVALIDATION_SECRET: "mock-secret-for-ci"
+          SHOPIFY_MOCK_EMPTY_CATALOG: "true"
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
